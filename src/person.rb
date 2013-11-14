@@ -1,9 +1,12 @@
 class Person
   attr_accessor :current_library, :reserved_books
 
+  def initialize
+    @reserved_books = []
+  end
+
   def go_to_library(library)
     @current_library = library
-    @reserved_books = []
   end
 
   def location

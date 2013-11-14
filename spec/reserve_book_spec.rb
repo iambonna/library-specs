@@ -1,6 +1,7 @@
 require './src/person'
 require './src/library'
 require './src/book'
+require 'byebug'
 
 
 describe 'reserving books' do
@@ -43,5 +44,25 @@ describe 'reserving books' do
     kevin.reserve_book("Ender's Game").should == 'That book is not in our library'
     kevin.go_to_library(oakland_library)
     kevin.reserve_book("Ender's Game").should == "You have reserved Ender's Game by Orson Scott Card"
+  end
+
+  it 'each library maintains a list of books it lent out' do
+    kevin = Person.new
+    sf_library = Library.new
+    oakland_library = Library.new
+    book1 = Book.new('The Name of the Wind', 'Patrick Rothfuss')
+    book2 = Book.new("A Wise Man's Fear", 'Patrick Rothfuss')
+    oakland_library.add_to_catalog([book1])
+    sf_library.add_to_catalog([book2])
+
+    kevin.go_to_library(oakland_library)
+    kevin.reserve_book('The Name of the Wind').should == "You have reserved The Name of the Wind by Patrick Rothfuss"
+
+    kevin.go_to_library(sf_library)
+    kevin.reserve_book("A Wise Man's Fear").should == "You have reserved A Wise Man's Fear by Patrick Rothfuss"
+
+    kevin.reserved_books.should == [book1, book2]
+    oakland_library.books_lent_out.should == [book1]
+    sf_library.books_lent_out.should == [book2]
   end
 end
