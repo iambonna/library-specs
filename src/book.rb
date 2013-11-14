@@ -6,5 +6,3 @@ class Book
     @author = author
   end
 end
-
-#testing git
