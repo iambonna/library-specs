@@ -17,7 +17,7 @@ describe 'reserving books' do
     library = Library.new
     kevin.go_to_library(library)
     kevin.borrow_book("Ender's Game").should == 'That book is not in our library'
-    kevin.reserved_books.should == []
+    kevin.books_i_borrowed.should == []
     library.books_lent_out.should == []
   end
 
@@ -29,7 +29,7 @@ describe 'reserving books' do
     library.add_to_catalog(books)
     kevin.go_to_library(library)
     kevin.borrow_book("Ender's Game").should == "You have reserved Ender's Game by Orson Scott Card"
-    kevin.reserved_books.should  == [book]
+    kevin.books_i_borrowed.should  == [book]
     library.books_lent_out.should == [book]
   end
 
@@ -61,7 +61,7 @@ describe 'reserving books' do
     kevin.go_to_library(sf_library)
     kevin.borrow_book("A Wise Man's Fear").should == "You have reserved A Wise Man's Fear by Patrick Rothfuss"
 
-    kevin.reserved_books.should == [book1, book2]
+    kevin.books_i_borrowed.should == [book1, book2]
     oakland_library.books_lent_out.should == [book1]
     sf_library.books_lent_out.should == [book2]
   end

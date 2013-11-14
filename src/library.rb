@@ -13,7 +13,7 @@ class Library
     end
   end
 
-  def has_book?(book_title)
+  def has_book_in_catalog?(book_title)
     has_book = false
     catalog.each do |book|
       if book.title == book_title
@@ -24,10 +24,8 @@ class Library
   end
 
   def retrieve_book_by_title(book_title)
-
     the_book = catalog.select{|book| book.title == book_title}.first
     @books_lent_out << the_book
     the_book
-
   end
 end
