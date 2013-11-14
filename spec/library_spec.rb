@@ -20,4 +20,3 @@ describe 'Library' do
     library.name.should == 'Awesome Library'
   end
 end
-
