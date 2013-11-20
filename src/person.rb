@@ -25,7 +25,6 @@ class Person
 
 
   def register_for_library_membership(personal_info)
-
     @personal_info = personal_info
     @membership_number = '1'
   end

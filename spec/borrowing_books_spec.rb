@@ -21,7 +21,7 @@ describe 'borrowing books' do
     library.books_lent_out.should == []
   end
 
-  it 'allows a user to reserve a book' do
+  it 'allows a user to borrow a book' do
     kevin = Person.new
     library = Library.new
     book = Book.new("Ender's Game", 'Orson Scott Card')
