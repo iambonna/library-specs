@@ -4,7 +4,7 @@ require './src/book'
 require 'byebug'
 
 
-describe 'reserving books' do
+describe 'borrowing books' do
   it 'should let us go to a library' do
     kevin = Person.new
     library = Library.new
