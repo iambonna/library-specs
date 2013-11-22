@@ -4,31 +4,25 @@ require 'byebug'
 class LibrarySystem
   attr_accessor :catalog
 
-  def find_book_by_title(book_title)
+  def get_catalog_entry_by_title(book_title)
     @catalog.each do |catalog_entry|
       if catalog_entry.book_title == book_title
         return catalog_entry
       end
     end
-    return false
+   nil
   end
 
   def find_library_with_book(book_title)
-    if find_book_by_title(book_title) != nil
-      book_im_looking_for = find_book_by_title(book_title)
-      return book_im_looking_for.library_name
+    if get_catalog_entry_by_title(book_title) != nil
+      book_im_looking_for = get_catalog_entry_by_title(book_title)
+      book_im_looking_for.library_name
+    else
+      'Book not found'
     end
-
-end
-
-def does_library_have_this_book?(book_title)
-  @catalog.each do |catalog_entry|
-    if catalog_entry.book_title == book_title
-      return true
-    end
-    return false
   end
 
-end
-
+  def does_library_system_have_this_book?(book_title)
+    !@catalog.select { |catalog_entry| catalog_entry.book_title == book_title }.empty?
+  end
 end
