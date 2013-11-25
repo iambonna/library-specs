@@ -16,6 +16,9 @@ class Library
       @members.each do |existing_members|
         if existing_members == personal_info
           return "#{personal_info} is already a member of a #{library_name}."
+        else
+          @members << personal_info
+          return "#{personal_info} is now a member of a #{library_name}."
         end
       end
     end
