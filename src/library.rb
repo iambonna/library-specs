@@ -9,18 +9,11 @@ class Library
   end
 
   def add_new_library_member(personal_info, library_name)
-    if @members.eql? []
-      @members << personal_info
-      return "#{personal_info} is now a member of a #{library_name}."
+    if @members.include? personal_info
+      "#{personal_info} is already a member of a #{library_name}."
     else
-      @members.each do |existing_members|
-        if existing_members == personal_info
-          return "#{personal_info} is already a member of a #{library_name}."
-        else
-          @members << personal_info
-          return "#{personal_info} is now a member of a #{library_name}."
-        end
-      end
+      @members << personal_info
+      "#{personal_info} is now a member of a #{library_name}."
     end
   end
 end
