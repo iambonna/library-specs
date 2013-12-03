@@ -7,7 +7,7 @@ class Person
 
   def initialize(person)
     @name = person.to_s
-    #@library_membership_number = 0
+    @library_membership_number = []
   end
 
   def borrow_book_by_title(title)

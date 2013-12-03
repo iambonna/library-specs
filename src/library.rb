@@ -17,7 +17,7 @@ class Library
       @library_membership_number += 1
       person.library_membership_number = @library_membership_number
       @members << person
-      "#{person.name} is now a member of a #{library_name}."
+      "#{person.name} is now a member of a #{library_name}. The membership number for #{person.name} is #{@library_membership_number}."
     end
   end
 
