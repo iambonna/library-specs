@@ -38,9 +38,7 @@ class LibrarySystem
       @library_list << library
       "#{library.library_name} is now added to the library system"
     end
-
   end
-
 
   def add_new_library_member(personal_info, library_name)
     ls = LibrarySystem.new
