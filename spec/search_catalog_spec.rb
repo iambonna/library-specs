@@ -11,8 +11,6 @@ describe 'Searching Catalog' do
     ls.does_library_system_have_this_book?('book3').should == false
     ls.does_library_system_have_this_book?('book2').should == true
     ls.does_library_system_have_this_book?('book1').should == true
-
-
   end
 
   it 'should find a library that has the book I am looking for' do

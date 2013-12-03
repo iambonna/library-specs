@@ -6,9 +6,7 @@ class Library
 
   def initialize (library_name)
     @library_name = library_name
-    @members = []
   end
-
 
 end
 
