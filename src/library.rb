@@ -31,6 +31,17 @@ class Library
       end
     end
   end
+
+  def search_members_by_membership_number(membership_number)
+    @members.each do |member|
+      if member.library_membership_number == membership_number
+        return "#{member.name}"
+      end
+    end
+    return "There is no one with a membership number #{membership_number}."
+
+  end
+
 end
 
 
