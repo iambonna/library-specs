@@ -7,7 +7,6 @@ describe 'Searching Catalog' do
     ce1 = CatalogEntry.new('book1', 'SF library')
     ce2 = CatalogEntry.new('book2', 'Oakland library')
     ls.catalog = [ce1, ce2]
-
     ls.does_library_system_have_this_book?('book3').should == false
     ls.does_library_system_have_this_book?('book2').should == true
     ls.does_library_system_have_this_book?('book1').should == true

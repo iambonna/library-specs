@@ -22,7 +22,6 @@ class Library
   end
 
   def search_members_by_name(person_name)
-    #byebug
     @members.each do |member|
       if member.name == person_name
         return "Yay! #{person_name} is a member of #{library_name}."
