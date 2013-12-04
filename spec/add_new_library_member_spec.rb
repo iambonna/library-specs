@@ -15,6 +15,8 @@ describe 'adding new library member' do
     sf_library.members.size.should == 1
     sf_library.add_new_member_to_library(kevin).should == 'Kevin Dishman is now a member of a SF library. The membership number for Kevin Dishman is 2.'
     sf_library.members.size.should == 2
+    sf_library.members == ['Bonna Choi', 'Kevin Dishman']
+    sf_library.library_membership_number == [1, 2]
   end
 
   it 'should not allow to add new member that already exist in the library' do
