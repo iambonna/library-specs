@@ -2,13 +2,30 @@ require 'byebug'
 require './src/person'
 
 class Library
-  attr_accessor :members, :library_membership_number, :catalog, :books_lent_out, :library_name
+  attr_accessor :members, :library_membership_number, :catalog, :books_lent_out, :library_name, :available_books
 
   def initialize(library_name)
     @library_name = library_name
     @members =[]
     @library_membership_number = 0
+    @books_lent_out = []
+    @catalog = []
   end
+  #
+  #def borrow_book_by_title(title, person)
+  #
+  #  if @catalog == []
+  #    return 'There is no book you are looking for. In fact, there is no book in this library.'
+  #  end
+  #
+  #  if @books_lent_out == []
+  #    book.book_title = title
+  #    book.renter = person
+  #    book.library_name = @library_name
+  #    @books_lent_out << book
+  #    return "#{person} lent a #{title} from #{@library_name}."
+  #  end
+  #end
 
   def add_new_member_to_library(person)
     if @members.include? person
