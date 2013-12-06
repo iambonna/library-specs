@@ -10,8 +10,13 @@ class Library
     @library_membership_number = 0
     @books_lent_out = []
     @catalog = []
+    @available_books = []
   end
-  #
+
+  def add_new_book_to_catalog(new_book)
+    @available_books << new_book
+  end
+
   #def borrow_book_by_title(title, person)
   #
   #  if @catalog == []
