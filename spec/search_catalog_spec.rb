@@ -24,13 +24,13 @@ describe 'Searching Catalog' do
     ls.catalog = [book2, book1]
     sf_library.add_new_book_to_catalog(book1)
     sf_library.add_new_book_to_catalog(book2)
-    sf_library.catalog = [book1, book2]
+    sf_library.catalog = [book2, book1]
     chicago_library.add_new_book_to_catalog(book1)
     chicago_library.add_new_book_to_catalog(book2)
     chicago_library.catalog = [book1, book2]
 
-    #ls.find_library_with_book('book1').should == 'SF library'
-    #ls.find_library_with_book('book2').should == 'Oakland library'
+    ls.find_library_with_book('book1').should == ['SF library', 'Chicago library']
+    ls.find_library_with_book('book2').should == ['SF library', 'Chicago library']
     ls.find_library_with_book('book3').should == 'Book not found'
   end
 end

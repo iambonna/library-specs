@@ -1,4 +1,4 @@
-require './src/library_system'
+require './src/catalog_entry'
 
 describe 'LibrarySystem' do
   it 'should return a catalog entry object when you search the catalog by title' do
