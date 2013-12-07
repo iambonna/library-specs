@@ -1,20 +1,23 @@
 require 'byebug'
 require './src/person'
+require './src/library_system'
 
 class Library
-  attr_accessor :members, :library_membership_number, :catalog, :books_lent_out, :library_name, :available_books
+  attr_accessor :members, :library_membership_number, :library_catalog, :books_lent_out, :library_name
 
   def initialize(library_name)
     @library_name = library_name
     @members =[]
     @library_membership_number = 0
     @books_lent_out = []
-    @catalog = []
-    @available_books = []
+    @library_catalog = []
   end
 
   def add_new_book_to_catalog(new_book)
-    @available_books << new_book
+    @library_catalog << new_book
+
+    ls = LibrarySystem.new
+    ls.catalog << new_book
   end
 
   #def borrow_book_by_title(title, person)

@@ -11,7 +11,7 @@ class LibrarySystem
   end
 
   def get_catalog_entry_by_title(book_title)
-    @catalog.each do |catalog_entry|
+    catalog.each do |catalog_entry|
       if catalog_entry.book_title == book_title
         return catalog_entry
       end
@@ -20,21 +20,22 @@ class LibrarySystem
   end
 
   def find_library_with_book(book_title)
-    book_im_looking_for = get_catalog_entry_by_title(book_title)
+    #book_im_looking_for = get_catalog_entry_by_title(book_title)
+    #@library_list.select {|library| library.catalog.include? book_im_looking_for == true}
+    #!@catalog.select { |catalog_entry| catalog_entry.book_title == book_title }.empty?
 
     @library_list.each do |library|
       if library.catalog.include? book_im_looking_for
         book_im_looking_for.libraries_that_have_this_book << library.library_name
         book_im_looking_for.libraries_that_have_this_book
-      else
-        return 'Book not found'
+      #else
+      # 'Book not found'
       end
+
 
     end
     return book_im_looking_for.libraries_that_have_this_book
-  #     "#{book_im_looking_for.libraries_that_have_this_book}"
   end
-
 
 
   def does_library_system_have_this_book?(book_title)
